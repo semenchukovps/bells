@@ -1,0 +1,4 @@
+#!/bin/sh -e
+echo ds1307 0x68 > /sys/class/i2c-dev/i2c-1/device/new_device
+sudo hwclock -s
+/etc/init.d/bells_system restart

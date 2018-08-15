@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+# "new(er)" style init script
+# Look at /lib/functions/service.sh on a running system for explanations of what other SERVICE_
+# options you can use, and when you might want them.
+
+START=99
+STOP=99
+
+APP=bells_system
+SERVICE_WRITE_PID=1
+SERVICE_DAEMONIZE=1
+
+start() {
+        service_start /bin/$APP
+	service_stop /bin/$APP
+	sleep 15
+	service_start /bin/$APP
+}
+
+stop() {
+        service_stop /bin/$APP
+}
